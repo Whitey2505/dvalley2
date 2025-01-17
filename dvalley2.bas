@@ -1,20 +1,21 @@
 5 GOSUB 5000
-10 PRINT "Escape from Death Valley"
+10 PRINT "        Escape from Death Valley"
 11 PRINT
-12 PRINT "You mst fly your ship through death valley"
-13 PRINT "make sure caps lock is on!"
+12 PRINT "  You mst fly your ship through death valley"
+13 PRINT "       make sure caps lock is on!"
 14 PRINT
-15 PRINT "control your movement with the Q and P keys"
+15 PRINT "control your ship movement with the Q and P keys"
 16 PRINT
-17 PRINT "in this version, the longer you fly"
-18 PRINT "the faster the ship goes"
-19 PRINT "how long can you survive?"
+17 PRINT "   in this version, the longer you fly"
+18 PRINT "        the faster the ship goes"
+19 PRINT "        how long can you survive?"
 20 LET S=0
 30 LET M=200
 32 LET T=250
 35 PRINT
-40 PRINT "select the width of the canyon"
+40 PRINT "       select the width of the canyon"
 41 PRINT "16 is a good starting point to get the hang of it"
+42 print "   go lower for a true 1982 style challenge!"
 50 INPUT W
 60 LET W=INT(W/2)
 70 LET L=10
@@ -46,11 +47,16 @@
 336 IF S = 400 THEN LET T=1
 338 IF S = 500 THEN GOTO 340
 339 GOTO 100
-340 PRINT "Well done- you made it"
-350 PRINT "Death valley"
+340 GOSUB 5000
+345 PRINT "Well done- you made it"
+350 PRINT "through Death valley"
 360 STOP
-370 PRINT "you crashed into the wall"
-380 PRINT "and disintegrated"
+370 GOSUB 5000
+375 PRINT "you crashed into the wall"
+380 PRINT "  and disintegrated"
+381 print
+382 print "whilst you are now stardust"
+383 print "You earned ";s;" points"
 390 STOP
 1000 IF N=0 THEN RETURN
 1010 FOR I=1 TO N
@@ -60,6 +66,12 @@
 1050 LET Y=Y-1
 1060 LET R=R+1
 1070 RETURN
+1080 LET Y=Y+1
+1090 LET R=R-1
+2000 RETURN
+5000 REM CLEAR SCREEN                   
+5010 PRINT CHR$(27);"[2J": RETURN 
+
 1080 LET Y=Y+1
 1090 LET R=R-1
 2000 RETURN
